@@ -22,24 +22,9 @@ management:
               
 zuul:
   routes:
-    user-service:
-      path: /user/**
-      serviceId: user-service
-    pet-service:
-      path: /pet/**
-      serviceId: pet-service
-    record-service:
-      path: /record/**
-      serviceId: record-service
-    location-service:
-      path: /location/**
-      serviceId: location-service
-    rule-service:
-      path: /rule/**
-      serviceId: rule-service
-    forum-service:
-      path: /forum/**
-      serviceId: forum-service
+    group-service:
+      path: /group/**
+      serviceId: group-service
       
 hystrix:
   command:
