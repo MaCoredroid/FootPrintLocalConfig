@@ -25,6 +25,13 @@ zuul:
     group-service:
       path: /group/**
       serviceId: group-service
+    group-service:
+      path: /org/**
+      serviceId: org-service
+    group-service:
+      path: /student/**
+      serviceId: student-service
+    
       
 hystrix:
   command:
