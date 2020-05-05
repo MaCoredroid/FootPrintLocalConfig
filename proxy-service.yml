@@ -25,10 +25,10 @@ zuul:
     group-service:
       path: /group/**
       serviceId: group-service
-    group-service:
+    org-service:
       path: /org/**
       serviceId: org-service
-    group-service:
+    student-service:
       path: /student/**
       serviceId: student-service
     
