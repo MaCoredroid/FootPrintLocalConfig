@@ -1,0 +1,56 @@
+server:
+  port: 8060
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    health-check-url-path: /actuator/health
+    metadata-map:
+      startup: ${random.int}   
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  
+  endpoint:
+    health:
+      show-details: ALWAYS
+              
+zuul:
+  routes:
+    user-service:
+      path: /user/**
+      serviceId: user-service
+    pet-service:
+      path: /pet/**
+      serviceId: pet-service
+    record-service:
+      path: /record/**
+      serviceId: record-service
+    location-service:
+      path: /location/**
+      serviceId: location-service
+    rule-service:
+      path: /rule/**
+      serviceId: rule-service
+    forum-service:
+      path: /forum/**
+      serviceId: forum-service
+      
+hystrix:
+  command:
+    myusers-service:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+            
+spring:
+  data.mongodb:
+    uri: mongodb://localhost:27017/auth
+  autoconfigure.exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+ 
